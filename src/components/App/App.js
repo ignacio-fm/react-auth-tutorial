@@ -11,7 +11,6 @@ function App() {
   const [token, setToken] = useState();
 
   if (!token) {
-    console.log(token)
     return <Login setToken={setToken} />
   }
 
