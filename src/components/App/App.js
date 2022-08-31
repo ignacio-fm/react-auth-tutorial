@@ -1,22 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './App.css';
 import Dashboard from '../Dashboard/Dashboard';
 import Login from '../Login/Login';
 import Preferences from '../Preferences/Preferences';
-
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken))
-}
-
-function getToken() {
-}
+import useToken from './useToken';
 
 function App() {
-  const token = getToken()
-
-  // const [token, setToken] = useState();
+  
+  const { token, setToken } = useToken()
 
   if (!token) {
     return <Login setToken={setToken} />
